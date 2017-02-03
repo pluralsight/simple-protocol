@@ -59,5 +59,6 @@ module.exports = {
   isFailure,
   success,
   failure,
-  isProtocol
+  isProtocol,
+  errorToObject
 }

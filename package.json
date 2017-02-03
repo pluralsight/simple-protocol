@@ -1,5 +1,5 @@
 {
-  "name": "simple-protocol",
+  "name": "simple-protocol-helpers",
   "version": "0.0.12",
   "description": "A small library for using simple protocol",
   "main": "lib/index.js",

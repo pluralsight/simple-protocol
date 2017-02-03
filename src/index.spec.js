@@ -10,7 +10,8 @@ const {
   normalizeListToFailure,
   success,
   failure,
-  isProtocol
+  isProtocol,
+  clean
 } = require('./index')
 
 describe('index.js', () => {
@@ -226,6 +227,30 @@ describe('index.js', () => {
       const l = [1, success(2), failure(3)]
       const actual = normalizeListToFailure(l)
       const expected = [failure(1), success(2), failure(3)]
+      deepEqual(actual, expected)
+    })
+  })
+
+  describe('clean()', () => {
+    it('should clean a success', () => {
+      const s = success(1)
+      s.meta = { foo: 'bar' }
+      const actual = clean(s)
+      const expected = {
+        success: true,
+        payload: 1
+      }
+      deepEqual(actual, expected)
+    })
+
+    it('should clean a failure', () => {
+      const s = failure(1)
+      s.meta = { foo: 'bar' }
+      const actual = clean(s)
+      const expected = {
+        success: false,
+        error: 1
+      }
       deepEqual(actual, expected)
     })
   })

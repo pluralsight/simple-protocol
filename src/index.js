@@ -48,6 +48,20 @@ const hasError = (s) => s.hasOwnProperty('error')
 const hasPayload = (s) => s.hasOwnProperty('payload')
 const hasSuccess = (s) => s.hasOwnProperty('success')
 
+const clean = (s) => {
+  if (hasPayload(s)) {
+    return {
+      success: s.success,
+      payload: s.payload
+    }
+  } else if (hasError(s)) {
+    return {
+      success: s.success,
+      error: s.error
+    }
+  }
+}
+
 module.exports = {
   getSuccesses,
   getFailures,
@@ -60,5 +74,6 @@ module.exports = {
   success,
   failure,
   isProtocol,
-  errorToObject
+  errorToObject,
+  clean
 }

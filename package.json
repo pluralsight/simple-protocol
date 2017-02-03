@@ -1,8 +1,9 @@
 {
   "name": "simple-protocol-helpers",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A small library for using simple protocol",
   "main": "lib/index.js",
+  "repository": "git://github.com/orourkedd/simple-protocol",
   "scripts": {
     "test": "jest",
     "transpile": "babel src --out-dir lib --source-maps --presets=es2015",
